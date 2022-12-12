@@ -2,6 +2,9 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import styled from "styled-components";
+import "./recipe.css";
+import {FaSearch} from 'react-icons/fa'
+
 
 const Recipe = () => {
   let params = useParams();
@@ -14,17 +17,27 @@ const Recipe = () => {
     );
     const detailData = await data.json();
     setDetails(detailData);
-    
+    console.log(detailData)
   };
   useEffect(() => {
     fetchDetails();
   }, [params.name]);
 
   return (
-    <DetailWrapper>
+    <div className="wraper">
       <div className="wrap">
         <h2>{details.title} </h2>
+        
+        <h3 className="h3-int">Ingredient:</h3>
+        <ul>
+      {details.extendedIngredients?.map((ingredient) =>
+      <li key={ingredient.id}>{ingredient.original}</li>
+      )}
+
+
+        </ul>
       </div>
+
       <Info>
         <Button
           className={activeTab === "instructions" ? "active" : ""}
@@ -39,43 +52,40 @@ const Recipe = () => {
           Ingredients
         </Button>
         <div>
+          <h3>Summary {FaSearch}</h3>
           <h3 dangerouslySetInnerHTML={{ __html: details.summary }}></h3>
+          <h5 dangerouslySetInnerHTML={{ __html: details.instructions }}></h5>
+
         </div>
-        {/* <ul>
-            {details.extendedIngredients.map((ingredient) => (
-                <li key={ingredient.id}>{ingredient.title}</li>
-           ))}
-        </ul> */}
+      
       </Info>
-    </DetailWrapper>
+    </div>
   );
 };
 
-const DetailWrapper = styled.div`
-margin-top: 10rem;
-margin-bottom: 5rem;
-display:flex;
+// const DetailWrapper = styled.div`
+// margin-top: 10rem;
+// margin-bottom: 5rem;
+// display:flex;
 
-.active {
-    background: linear-gradient(35deg, #494949, #313131);
-    color: white;
-} 
+// .active {
+//     background: linear-gradient(35deg, #494949, #313131);
+//     color: white;
+// }
 
-h2 {
-    margin-bottom:2rem;
-    
-    
-}
-li {
-   font-size: 1.2rem;
-   line-height:2.5rem;
+// h2 {
+//     margin-bottom:2rem;
 
-   ul {
-    margin-top:2rem;
-   }
-   
+// }
+// li {
+//    font-size: 1.2rem;
+//    line-height:2.5rem;
 
-`;
+//    ul {
+//     margin-top:2rem;
+//    }
+
+// `;
 const Button = styled.button`
 padding: 1rem 2rem;
 color: #313131;

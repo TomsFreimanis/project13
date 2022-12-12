@@ -4,6 +4,7 @@ import { Searched } from "./Searched";
 import { Route, Routes } from "react-router-dom";
 import Recipe from "./Recipe";
 import Cuisine from "./Cuisine";
+
 const Pages = () => {
   return (
     <Routes>
@@ -14,5 +15,6 @@ const Pages = () => {
     </Routes>
   );
 };
+
 
 export default Pages;

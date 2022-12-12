@@ -26,12 +26,13 @@ const Cuisine = () => {
     <div className="grid">
       {cusine.map((item) => {
         return (
+          <Link to={'/recipe/' +item.id}>
           <div className="card" key={item.id}>
             <img src={item.image} alt="" />
            <h4>{item.title}</h4> 
-          
             
           </div>
+         </Link>
         );
       })}
     </div>
