@@ -4,9 +4,9 @@
     grid-gap: 3rem;
   }
   
-  img {
-      width: 100%;
-      border-radius: 2rem;
+.grid img {
+    width: min(400px, 100%);
+    border-radius: 2rem;
   }
   
   .card a {

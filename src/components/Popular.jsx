@@ -47,13 +47,13 @@ const Popular = () => {
           {popular.map((item) => {
             return (
               <SplideSlide key={item.id}>
-                <div className="card">
+                <Card>
                   <Link to={"/recipe/" + item.id}>
                   <p>{item.title}</p>
                   <img src={item.image} alt={item.title} />
                 <Gradient />
                   </Link>
-                </div>
+                </Card>
               </SplideSlide>
             );
           })}
@@ -74,5 +74,33 @@ const Gradient = styled.div`
   height: 100%;
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.5));
 `;
-
+const Card = styled.div`
+  min-height: 25rem;
+  overflow: hidden;
+  position: relative;
+  img {
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 2rem;
+  }
+  p {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, 0);
+    text-align: center;
+    color: #fff;
+    width: 100%;
+    height: 40%;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+  }
+`;
 export default Popular;
