@@ -6,11 +6,13 @@ import styled from "styled-components";
 import { Link } from "react-router-dom";
 import { GiKnifeFork } from "react-icons/gi";
 
+
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
         <Nav>
+       
           <GiKnifeFork ></GiKnifeFork>
           <Logo to={"/"}>Delicious </Logo>
         </Nav>
@@ -22,10 +24,11 @@ function App() {
   );
 }
 const Logo = styled(Link)`
-  text-decoration: none;
-  font-size: 1.5rem;
+ 
+  font-size: 2rem;
   font-weigth: 400;
   font-family: "Lobster Two", cursive;
+  
 `;
 
 const Nav = styled.div`

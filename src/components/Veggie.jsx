@@ -63,6 +63,7 @@ const Veggie = () => {
 }
 const Wrapper = styled.div`
   margin: 4rem 0rem;
+  
 `;
 const Gradient = styled.div`
   z-index: 3;
